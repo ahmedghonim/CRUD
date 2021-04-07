@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="text-center mt-3">CRUD system</h1>
+    <div class="container py-5">
+      <div class="form-group align-items-baseline  justify-content-center d-flex">
+        <h3 >ID :</h3>
+        <h3 id="index" class="ml-2"></h3>
+      </div>
+      <div class="form-group">
+        <label>Prodact Name</label>
+        <input type="text" class="form-control shadow-sm" id="prodactName" />
+      </div>
+
+      <div class="form-group">
+        <label>Prodact Price</label>
+        <input type="text" class="form-control shadow-sm" id="prodactPrice" />
+      </div>
+
+      <div class="form-group">
+        <label>Prodact Categorey</label>
+        <input type="text" class="form-control shadow-sm" id="prodactCata" />
+      </div>
+
+      <div class="form-group">
+        <label>Prodact Decscription</label>
+        <textarea class="form-control shadow-sm" id="prodactDes"></textarea>
+      </div>
+
+      <button id="add" class="btn btn-success shadow-sm">Add Prodact</button>
+
+      <div class="form-group w-50 text-center m-auto">
+        <label>Search</label>
+        <input onkeyup="search(this.value)" type="text" class="form-control shadow-sm" id="prodactSersh" />
+      </div>
+
+      <div class="pt-5">
+        <table class="table text-center">
+          <thead >
+            <tr >
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Categorey</th>
+              <th scope="col">Decscription</th>
+              <th scope="col">Delet</th>
+              <th scope="col">Update</th>
+            </tr>
+          </thead>
+          <tbody id="TRS">
+            <!-- --------------------------------- -->
+            <!--              JSON                 -->
+            <!-- --------------------------------- -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="./js/main.js"></script>
