@@ -29,8 +29,18 @@ function addProdact() {
     valPD = prodactDes.value;
 
 
-    // pushing the opject
+    // regular exeprtions ^ [] $ . | () {} + *
+
+    var regExName = /^[A-Za-z]*/
+    var regExPrice = /^[0-9]{6}$/
+
     display()
+    // if (regExName.test(valPN) && regExPrice.test(valPP)) {
+
+    // }else{
+    //     alert('plez enter valed name')
+    // }
+    // pushing the opject
     localStorage.setItem("myStoreStorage", JSON.stringify(arrStor))
 
     /* -------------- showing tapole -------------- */
@@ -68,7 +78,7 @@ function showT() {
     var newTR = ``;
     for (var i = 0; i < arrStor.length; i++) {
         newTR += `<tr>
-        <th scope="row">${i + 1}</th>
+        <th scope="row">${i+1 }</th>
         <td>${arrStor[i].name} </td>
         <td>${arrStor[i].price}</td>
         <td>${arrStor[i].categorey}</td>
@@ -99,22 +109,23 @@ function search(val) {
     var sersharr = []
     for (let i = 0; i < arrStor.length; i++) {
         if (arrStor[i].name.toLowerCase().includes(val)) {
+            arrStor[i]['index'] = i
+
             sersharr.push(arrStor[i])
         }
     }
     console.log(sersharr);
 
-
     var newTR = ``;
     for (var i = 0; i < sersharr.length; i++) {
         newTR += `<tr>
-           <th scope="row">${i + 1}</th>
+           <th scope="row">${sersharr[i].index+1}</th>
            <td>${sersharr[i].name} </td>
            <td>${sersharr[i].price}</td>
            <td>${sersharr[i].categorey}</td>
            <td>${sersharr[i].descreption}</td>
-           <td><button class="btn btn-danger" onclick="delet(${i})">Delet</button></td>
-           <td><button class="btn btn-primary" onclick="update(${i})">Update</button></td>
+           <td><button class="btn btn-danger" onclick="delet(${sersharr[i].index})">Delet</button></td>
+           <td><button class="btn btn-primary" onclick="update(${sersharr.index})">Update</button></td>
            </tr>`
     }
     TRS.innerHTML = newTR
